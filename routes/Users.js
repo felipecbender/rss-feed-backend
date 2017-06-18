@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require('../models/User');
 
 router.get('/:id_user?', function(req, res, next) {
-    User.getUserById(req.body, function(err, rows) {
+    User.getUserById(req.params.id_user, function(err, rows) {
         if (err) {
             res.json(err);
         } else {

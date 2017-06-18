@@ -13,10 +13,12 @@ var User = {
             callback);
     },
     deleteUser: function(User, callback) {
-        return db.query("delete from user where id_user = ?", [User.id], callback);
+        return db.query("delete from user where id_user = ?", [User.id_user], callback);
     },
     updateUser: function(User, callback) {
-        return db.query("update user set name = ?, password = ? where id_user = ? ", [User.name, User.password, User.id], callback);
+        return db.query("update user set name = ?, password = ? where id_user = ? ", [User.name, User.password, User.id_user], callback);
     },
 };
+
+
 module.exports = User;
