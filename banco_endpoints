@@ -1,0 +1,96 @@
+# rss-feed-backend
+
+# Banco:
+
+Tabela de feed salvas por usuário
+CREATE TABLE IF NOT EXISTS personal_feed (
+ id_feed int NOT NULL primary key auto_increment,
+ id_user int NOT NULL,
+ title varchar(100) NOT NULL,
+ link varchar(200) NOT NULL,
+ author varchar (80) NOT NULL,
+ description varchar (500) NOT NULL,
+ image varchar (250) NOT NULL
+ ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ 
+ //Tabela dos usuários
+ CREATE TABLE IF NOT EXISTS user (
+ id_user int NOT NULL primary key auto_increment,
+ name varchar(100) NOT NULL,
+ password varchar(20) NOT NULL
+ ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+Endpoints:
+PersonalFeed
+- buscar feeds por id de usuário (Method : GET): 'https://rss-reader-backend.herokuapp.com/PersonalFeeds/{id_user}'
+
+
+- salvar feed (Method: POST) : https://rss-reader-backend.herokuapp.com/PersonalFeeds/
+body: {
+    "id_feed":0,
+    "id_user":1,
+    "title":"Chief Data Officers ganham equipe, força e lideram empresas para o digital",
+    "link":"http://computerworld.com.br/chief-data-officers-ganham-equipe-forca-e-lideram-empresas-para-o-digital",
+    "author":"",
+    "description":"Chief Data Officers ganham equipe, força e lideram empresas para o digital and do Gartner sobre CDOs revela aumento da popularidade desses executivos e foco em gerar novas receitas com os dados corporativos.","image":"http://computerworld.com.br/sites/beta.computerworld.com.br/files/news_articles/big_data_analytics_0.jpg"
+}
+OBS: Id do feed é gerado automaticamente (Necessário passar o objeto completo)
+
+
+- Update feed (Method: PUT) : https://rss-reader-backend.herokuapp.com/PersonalFeeds/
+body: {
+    "id_feed":0,
+    "id_user":1,
+    "title":"Chief Data Officers ganham equipe, força e lideram empresas para o digital",
+    "link":"http://computerworld.com.br/chief-data-officers-ganham-equipe-forca-e-lideram-empresas-para-o-digital",
+    "author":"",
+    "description":"Chief Data Officers ganham equipe, força e lideram empresas para o digital and do Gartner sobre CDOs revela aumento da popularidade desses executivos e foco em gerar novas receitas com os dados corporativos.","image":"http://computerworld.com.br/sites/beta.computerworld.com.br/files/news_articles/big_data_analytics_0.jpg"
+}
+OBS: Atualização pelo id do usuário e feed (Necessário passar o objeto completo)
+
+
+- Delete feed (Method: DELETE) : https://rss-reader-backend.herokuapp.com/PersonalFeeds/
+body: {
+    "id_feed":1,
+    "id_user":1,
+    "title":"...",
+    "link":"...",
+    "author":"...",
+    "description":"...",
+    "image":"..."
+}
+OBS: Deleção pelo id do feed (Necessário passar o objeto completo)
+
+
+
+User
+- buscar user por id de usuário (Method : GET): 'https://rss-reader-backend.herokuapp.com/Users/{id_user}'
+
+
+- salvar user (Method: POST) : https://rss-reader-backend.herokuapp.com/Users/
+body: {
+    "id_user": 0,
+    "name": "teste2",
+    "password": "teste2"
+}
+OBS: Id do feed é gerado automaticamente (Necessário passar o objeto completo)
+
+
+- Update user (Method: PUT) : https://rss-reader-backend.herokuapp.com/Users/
+body: {
+    "id_user": 12,
+    "name": "teste2",
+    "password": "teste2"
+}
+OBS: Atualização pelo id do usuário (Necessário passar o objeto completo)
+
+
+- Delete user (Method: DELETE) :
+https://rss-reader-backend.herokuapp.com/PersonalFeeds/
+body: {
+     "id_user": 12,
+    "name": "teste2",
+    "password": "teste2"
+}
+OBS: Deleção pelo id do usuário (Necessário passar o objeto completo)
