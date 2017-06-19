@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/User');
 
+router.get('/', function(req, res, next) {
+    User.getUsers(function(err, rows) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(rows);
+        }
+    });
+});
 router.get('/:id_user?', function(req, res, next) {
     User.getUserById(req.params.id_user, function(err, rows) {
         if (err) {
