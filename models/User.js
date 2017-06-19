@@ -9,9 +9,8 @@ var User = {
     },
     addUser: function(User, callback) {
         console.log(User);
-        return db.query("Insert into user (name, password) values (?, ?)", [
-                User.name,
-                User.password
+        return db.query("Insert into user (name) values (?)", [
+                User.name
             ],
             callback);
     },
@@ -19,7 +18,7 @@ var User = {
         return db.query("delete from user where id_user = ?", [User.id_user], callback);
     },
     updateUser: function(User, callback) {
-        return db.query("update user set name = ?, password = ? where id_user = ? ", [User.name, User.password, User.id_user], callback);
+        return db.query("update user set name = ? where id_user = ? ", [User.name, User.id_user], callback);
     },
 };
 

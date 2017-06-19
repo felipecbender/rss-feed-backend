@@ -25,6 +25,8 @@ Endpoints:
 PersonalFeed
 - buscar feeds por id de usuário (Method : GET): 'https://rss-reader-backend.herokuapp.com/PersonalFeeds/{id_user}'
 
+- buscar feeds por id de usuário (Method : GET): 'https://rss-reader-backend.herokuapp.com/PersonalFeeds/{id_user}'
+
 
 - salvar feed (Method: POST) : https://rss-reader-backend.herokuapp.com/PersonalFeeds/
 body: {
@@ -65,6 +67,7 @@ OBS: Deleção pelo id do feed (Necessário passar o objeto completo)
 
 
 User
+- buscar todos usuários (Method : GET): 'https://rss-reader-backend.herokuapp.com/Users/'
 - buscar user por id de usuário (Method : GET): 'https://rss-reader-backend.herokuapp.com/Users/{id_user}'
 
 
@@ -87,7 +90,7 @@ OBS: Atualização pelo id do usuário (Necessário passar o objeto completo)
 
 
 - Delete user (Method: DELETE) :
-https://rss-reader-backend.herokuapp.com/PersonalFeeds/
+https://rss-reader-backend.herokuapp.com/Users/
 body: {
      "id_user": 12,
     "name": "teste2",
