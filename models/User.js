@@ -1,6 +1,9 @@
 var db = require('../dbconnection');
 
 var User = {
+    getUsers: function(callback) {
+        return db.query("Select * from user", callback);
+    },
     getUserById: function(user_id, callback) {
         return db.query("Select * from user where id_user = " + user_id, callback);
     },
