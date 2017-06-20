@@ -40,6 +40,15 @@ router.delete('/', function(req, res, next) {
         });
     }
 });
+router.delete('/:id_feed?', function(req, res, next) {
+    PersonalFeed.deletePersonalFeedById(req.params.id_feed, function(err, count) {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json(count);
+        }
+    });
+});
 router.put('/', function(req, res, next) {
     PersonalFeed.updatePersonalFeed(req.body, function(err, rows) {
         if (err) {

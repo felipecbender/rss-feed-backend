@@ -1,9 +1,6 @@
 var db = require('../dbconnection');
 
 var PersonalFeed = {
-    getAllPersonalFeeds: function(callback) {
-        return db.query("Select * from personal_feed", callback);
-    },
     getPersonalFeedByUserId: function(userId, callback) {
         return db.query("select * from personal_feed where id_user = ?", [userId], callback);
     },
@@ -21,6 +18,9 @@ var PersonalFeed = {
     },
     deletePersonalFeed: function(PersonalFeed, callback) {
         return db.query("delete from personal_feed where id_feed = ?", [PersonalFeed.id_feed], callback);
+    },
+    deletePersonalFeedById: function(id_feed, callback) {
+        return db.query("delete from personal_feed where id_feed = ?", [id_feed], callback);
     },
     deleteAllPersonalFeed: function(PersonalFeed, callback) {
         return db.query("delete from personal_feed where id_user = ?", [PersonalFeed.id_user], callback);
