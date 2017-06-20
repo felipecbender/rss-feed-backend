@@ -1,41 +1,20 @@
 
 # rss-feed-backend
 
-## Banco:
+Banco:
+----
 - Criação da tabela personal_feed: Salva os feeds dos usuários. 
 
 >   CREATE TABLE IF NOT EXISTS personal_feed ( 
 >
->   id_feed int NOT NULL primary key auto_increment, 
->
->   id_user int NOT NULL,
->
->   title varchar(100) NOT NULL,
->
->   link varchar(200) NOT NULL,
->
->   author varchar (80) NULL,
->
->   description varchar (500) NOT NULL,
->
->   image varchar (250) NULL
->
->   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
+>   id_feed int NOT NULL primary key auto_increment, id_user int NOT NULL, title varchar(100) NOT NULL, link varchar(200) NOT NULL, author varchar (80) NULL, description varchar (500) NOT NULL, image varchar (250) NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 - Criação da tabela user: Salva os usuários.
 
 >   CREATE TABLE IF NOT EXISTS user (
 >
->   id_user int NOT NULL primary key auto_increment,
->
->   name varchar(100) NOT NULL
->
->   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
+>   id_user int NOT NULL primary key auto_increment, name varchar(100) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 ## Endpoints (Personal_Feed):
@@ -45,6 +24,7 @@
 | Salvar feed (Passar objeto no corpo da requisição) | POST   | https://rss-reader-backend.herokuapp.com/PersonalFeeds/ |
 | Atualizar feed (Passar objeto no corpo da requisição) | PUT    | https://rss-reader-backend.herokuapp.com/PersonalFeeds/ |
 | Deletar feed (Passar objeto no corpo da requisição)  | DELETE | https://rss-reader-backend.herokuapp.com/PersonalFeeds/ |
+| Deletar feed (Passar id feed na URL)  | DELETE | https://rss-reader-backend.herokuapp.com/PersonalFeeds/{id_feed} |
 
 ```sh
 > Exemplo de Objeto PersonalFeed para enviar no corpo (body) dos métodos POST / PUT / DELETE:
